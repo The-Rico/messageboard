@@ -1,0 +1,27 @@
+body {
+  padding: 50px;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+a {
+  color: cornflowerblue;
+  text-decoration: none;
+}
+
+.button {
+  color: white;
+  background-color: cornflowerblue;
+  padding: 5px;
+  border-radius: 10px;
+  width: 200px;
+}
+.button:hover {
+  background-color: rgba(100, 148, 237, 0.479);
+  cursor: pointer;
+}
+
+input {
+  border-radius: 10px;
+  width: 200px;
+}
