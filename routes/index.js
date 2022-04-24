@@ -16,7 +16,7 @@ const messages = [
 router.get('/', function (req, res, next) {
   res.render('index', {
     messages: messages,
-    title: 'Mini Messageboard',
+    title: 'The Confessional',
   });
 });
 router.get('/new', function (req, res, next) {

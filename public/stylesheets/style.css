@@ -2,11 +2,19 @@ body {
   padding: 50px;
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
   text-align: center;
+  background-image: url('/images/bg.svg');
+  background-color: #cccccc;
 }
 
 a {
-  color: cornflowerblue;
+  color: rgb(106, 41, 217);
   text-decoration: none;
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+li {
+  list-style: none;
 }
 
 .button {
@@ -24,4 +32,18 @@ a {
 input {
   border-radius: 10px;
   width: 200px;
+}
+.glass {
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.39);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0px auto;
+  width: 400px;
 }

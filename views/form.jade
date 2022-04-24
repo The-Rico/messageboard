@@ -1,15 +1,17 @@
 link(rel='stylesheet', href='../stylesheets/style.css')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-h2 Add a new thingy
 
-
-a(href="..") Back to main
-
-<form method="POST" action="/new">
-p Author's name
-input(type="text" name="name")
-p Message text
-input(type="text" name="message")
-p 
-button(class='button') Submit
-</form>
+div(class='glass')
+    h2 Let it off of your chest
+    div
+    a(href='..')
+        i.fa.fa-arrow-left(aria-hidden='true') Go back
+    <form method="POST" action="/new">
+    p Author's name
+    input(type="text" name="name")
+    p Message text
+    input(type="text" name="message")
+    p 
+    button(class='button') Submit
+    </form>

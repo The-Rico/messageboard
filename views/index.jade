@@ -1,11 +1,13 @@
 link(rel='stylesheet', href='../stylesheets/style.css')
+  extends layout
 
-
-extends layout
 block content
+  div(class='glass')
+    h1=title
+    a(href="./new") Add to the list
+    div
+    - for (var i = 0; i < messages.length; i++)
+        - let num = i + 1
+        li= '#' + num + ': ' + messages[i].text + ' Created by: ' + messages[i].user + ' at: ' + messages[i].added
+        p= ''
 
-  h1=title
-  - for (var i = 0; i < messages.length; i++)
-    li= messages[i].text + ' Created by: ' + messages[i].user + ' at: ' + messages[i].added
-    p= ''
-  a(href="./new") Create new note
