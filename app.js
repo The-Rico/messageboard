@@ -1,13 +1,53 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
 
-var app = express();
+const app = express();
+
+//Mongoose set up connection
+const mongoDb =
+  'mongodb+srv://test:test@cluster0.fcsfy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'mongo connection error'));
+
+//Set up user schema
+const User = mongoose.model(
+  'User',
+  new Schema({
+    username: {
+      type: String,
+      require: true,
+      index: true,
+      unique: true,
+      sparse: true,
+    },
+    password: {
+      type: String,
+      require: true,
+      index: true,
+      unique: true,
+      sparse: true,
+    },
+  })
+);
+
+app.use(session({ secret: 'cats', resave: false, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.urlencoded({ extended: false }));
+
+app.get('/index', (req, res) => res.render('index'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,6 +61,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.get('/register', (req, res) => res.render('register'));
+
+//Send registration info to database
+app.post('/register', (req, res, next) => {
+  const user = new User({
+    username: req.body.username,
+    password: req.body.password,
+  }).save((err) => {
+    if (err) {
+      return next(err);
+    }
+    res.redirect('/');
+  });
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

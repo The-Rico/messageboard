@@ -7,10 +7,10 @@ block content
     a(href="./login" class='login') Login
     a(href="./new" class='addToList') Add to the list
     div
+    
     - for (var i = 0; i < messages.length; i++)
       div(class='innerGlass')
         li(class='liTitle')=messages[i].title
         li= messages[i].text
         li= messages[i].added
         p= ''
-
