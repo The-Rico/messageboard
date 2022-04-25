@@ -4,10 +4,13 @@ link(rel='stylesheet', href='../stylesheets/style.css')
 block content
   div(class='glass')
     h1=title
-    a(href="./new") Add to the list
+    a(href="./login" class='login') Login
+    a(href="./new" class='addToList') Add to the list
     div
     - for (var i = 0; i < messages.length; i++)
-        - let num = i + 1
-        li= '#' + num + ': ' + messages[i].text + ' Created by: ' + messages[i].user + ' at: ' + messages[i].added
+      div(class='innerGlass')
+        li(class='liTitle')=messages[i].title
+        li= messages[i].text
+        li= messages[i].added
         p= ''
 

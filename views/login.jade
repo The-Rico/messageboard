@@ -1,17 +1,19 @@
 link(rel='stylesheet', href='../stylesheets/style.css')
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-div(class='glass')
-    h2 Let it off of your chest
-    div
+block content
+  div(class='glass')
+    h1 Welcome back!
+    a(href="./register" class='login') Register
     a(href='..')
         i.fa.fa-arrow-left(aria-hidden='true') Go back
     <form method="POST" action="/new">
-    p Title
-    input(type="text" name="name")
-    p Message
-    input(type="text" name="message")
+    p Username
+    input(type="text" name="username")
+    p Password
+    input(type="password" name="password")
     p 
     button(class='button') Submit
     </form>
+    div
+

@@ -6,15 +6,28 @@ body {
   background-color: #cccccc;
 }
 
-a {
-  color: rgb(106, 41, 217);
+.addToList {
+  color: rgb(106, 40, 220);
   text-decoration: none;
   font-size: 2em;
   margin-bottom: 1em;
 }
+.login {
+  color: rgb(97, 80, 126);
+  text-decoration: none;
+  font-size: 1em;
+  align-self: flex-end;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
 
 li {
   list-style: none;
+}
+.liTitle {
+  font-weight: 600;
+  font-size: 2em;
 }
 
 .button {
@@ -34,7 +47,7 @@ input {
   width: 200px;
 }
 .glass {
-  background: rgba(255, 255, 255, 0.21);
+  background: rgba(255, 255, 255, 0.488);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -45,5 +58,19 @@ input {
   justify-content: center;
   flex-direction: column;
   margin: 0px auto;
-  width: 400px;
+  width: 50%;
+}
+.innerGlass {
+  background: rgba(255, 255, 255, 0.567);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.39);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 2px auto;
+  width: 90%;
 }
